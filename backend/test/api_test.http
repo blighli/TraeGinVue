@@ -1,0 +1,31 @@
+### 获取所有员工
+GET http://localhost:8080/api/employees
+
+### 创建新员工
+POST http://localhost:8080/api/employees
+Content-Type: application/json
+
+{
+    "id": "EMP002",
+    "name": "张三2",
+    "department": "技术部",
+    "position": "开发工程师",
+    "joinDate": "2024-03-20",
+    "status": "在职"
+}
+
+### 更新员工信息
+PUT http://localhost:8080/api/employees/EMP001
+Content-Type: application/json
+
+{
+    "id": "EMP001",
+    "name": "张三",
+    "department": "研发部",
+    "position": "高级开发工程师",
+    "joinDate": "2024-03-20",
+    "status": "在职"
+}
+
+### 删除员工
+DELETE http://localhost:8080/api/employees/EMP001
