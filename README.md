@@ -1,12 +1,41 @@
-# React + Vite
+# 人事档案管理系统
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+基于 Vue 3 + Go 的人事档案管理系统，支持 Docker 和 Podman 部署。
 
-Currently, two official plugins are available:
+## 功能特性
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 员工信息管理（增删改查）
+- 部门管理
+- 数据统计和可视化
+- 搜索和筛选功能
 
-## Expanding the ESLint configuration
+## 技术栈
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 前端：Vue 3 + Tailwind CSS
+- 后端：Go + Gin + GORM
+- 数据库：SQLite
+
+## 快速开始
+
+### 使用 Docker
+
+```bash
+# 构建和运行
+docker-compose up --build
+
+# 停止服务
+docker-compose down
+
+### 使用 Podman
+
+# 配置代理（如果需要）
+set HTTP_PROXY=http://127.0.0.1:1080
+
+# 使用 podman-compose
+podman-compose up --build
+
+# 或者分别构建和运行
+podman build -t traesys-frontend .
+podman build -t traesys-backend ./backend
+podman run -d -p 80:80 traesys-frontend
+podman run -d -p 8080:8080 traesys-backend
